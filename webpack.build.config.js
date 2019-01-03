@@ -1,10 +1,5 @@
 const path = require('path');
 
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin')
-// const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
 module.exports = {
     mode: 'development',
     devtool: 'cheap-module-source-map',
@@ -59,17 +54,4 @@ module.exports = {
         //   },
         ],
     },
-
-    plugins:[
-        new CleanWebpackPlugin(['lib']),
-        new HtmlWebpackPlugin({
-            filename: 'index.html',
-            template: path.join(__dirname, 'src/index.html')
-        }),
-        new MiniCssExtractPlugin({
-            filename: "css/[name].css",
-            // chunkFilename: "css/[id].css"
-        }),
-        // new UglifyJSPlugin(),
-    ],
 };

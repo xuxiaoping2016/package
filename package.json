@@ -1,12 +1,13 @@
 {
   "name": "cspackage",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
-  "main": "lib/bundle.js",
+  "main": "./lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack --config webpack.dev.config.js",
-    "exam": "webpack-dev-server --config webpack.exam.config.js"
+    "dev": "webpack-dev-server --config webpack.dev.config.js",
+    "exam": "webpack-dev-server --config webpack.exam.config.js",
+    "build": "webpack --config webpack.build.config.js"
   },
   "repository": {
     "type": "git",
