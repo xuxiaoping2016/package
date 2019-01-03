@@ -2,7 +2,7 @@ const path = require('path');
 
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin')
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+// const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
@@ -15,30 +15,14 @@ module.exports = {
     /*输出到dist文件夹，输出文件名字为bundle.js*/
     output: {
         path: path.join(__dirname, './dist'),
-        filename: 'bundle.js'
+        filename: '[name].bundle.js'
     },
     module: {
         rules: [
-        //   {
-        //     test: /\.(js|jsx)$/,
-        //     enforce: 'pre',
-        //     use: [
-        //       {
-        //         loader: require.resolve('eslint-loader'),
-        //         options: {
-        //           eslintPath: require.resolve('eslint'),
-        //           emitWarning: false,
-        //           cache: false,
-        //         },
-        //       },
-        //     ],
-        //     exclude: /node_modules/,
-        //     include: [path.resolve(__dirname, '../src/')],
-        //   },
           {
             test: /\.(js|jsx)$/,
             loader: 'babel-loader?cacheDirectory',
-            include: [path.resolve(__dirname, 'src')],
+            include: [path.resolve(__dirname, 'examples')],
           },
           {
               test:/\.css$/,
@@ -70,6 +54,6 @@ module.exports = {
             filename: "css/[name].css",
             // chunkFilename: "css/[id].css"
         }),
-        new UglifyJSPlugin(),
+        // new UglifyJSPlugin(),
     ],
 };

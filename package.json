@@ -1,11 +1,12 @@
 {
   "name": "cspackage",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack --config webpack.dev.config.js"
+    "dev": "webpack --config webpack.dev.config.js",
+    "exam": "webpack-dev-server --config webpack.exam.config.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +20,8 @@
   "homepage": "https://github.com/xuxiaoping2016/package#readme",
   "dependencies": {
     "antd": "^3.11.6",
-    "react": "^16.7.0"
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

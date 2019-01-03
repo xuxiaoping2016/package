@@ -7,11 +7,5 @@ import GoodList from './goodsList'
 // import {InputCount,TextareaCount} from './inputCount'
 // import LimitedRangePicker from './limitedRangePicker'
 
-export default {
-  GoodList,
-  // ImageReview,
-  // InfoCard,
-  // InputCount,
-  // TextareaCount,
-  // LimitedRangePicker
-};
+
+export default GoodList

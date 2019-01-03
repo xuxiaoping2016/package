@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import cspackage from 'cspackage';
+import { GoodList } from 'cspackage';
 
 const data = [
     {
@@ -171,8 +171,11 @@ const column = [{
   },
 ];
 
-export default class GoodList extends Component {
+export default class GoodListDemo extends Component {
     render(){
-
+        return <GoodList 
+            list={data}
+            column={column}
+        />
     }
 }
