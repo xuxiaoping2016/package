@@ -21,5 +21,8 @@ src
 scripts
 specs
 _book
+node_modules
+src
 examples
+dist
 bf.js

@@ -1,15 +1,20 @@
 const path = require('path');
 
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 module.exports = {
     mode: 'development',
     devtool: 'cheap-module-source-map',
  
     /*入口*/
-    entry: path.join(__dirname, 'src/index.js'),
+    entry: path.join(__dirname, 'examples/index.js'),
     
     /*输出到dist文件夹，输出文件名字为bundle.js*/
     output: {
-        path: path.join(__dirname, './lib'),
+        path: path.join(__dirname, './dist'),
         filename: 'bundle.js'
     },
     module: {
@@ -54,4 +59,17 @@ module.exports = {
         //   },
         ],
     },
+
+    plugins:[
+        new CleanWebpackPlugin(['dist']),
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: path.join(__dirname, 'examples/index.html')
+        }),
+        new MiniCssExtractPlugin({
+            filename: "css/[name].css",
+            // chunkFilename: "css/[id].css"
+        }),
+        new UglifyJSPlugin(),
+    ],
 };
