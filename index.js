@@ -4,20 +4,20 @@ const fs = require('fs');
 const program = require('commander');
 const download = require('download-git-repo'); //下载模版文件
 const chalk = require('chalk');  //美化终端
-const symbols = require('log-symbols'); //美化终端
+// const symbols = require('log-symbols'); //美化终端
 const handlebars = require('handlebars'); //修改模版文件内容
 
 const ora = require('ora'); //提示下载
 var inquirer = require('inquirer');  //提示文本
-const package = require('./package.json'); //获取版本信息
+const packageJson = require('./package.json'); //获取版本信息
 const re = new RegExp("^[a-zA-Z]+$"); //检查文件名是否是英文，只支持英文
 
 program
-  .version(package.version, '-v,--version')
+  .version(packageJson.version, '-v,--version')
   .command('init <name>')
   .action(name => {
     if (!re.test(name)) { //检查文件名是否是英文
-      console.log(symbols.error, chalk.red('错误!请输入英文名称'));
+      // console.log(symbols.error, chalk.red('错误!请输入英文名称'));
       return 
     } 
     if (!fs.existsSync(name)) { //检查项目中是否有该文件
@@ -36,7 +36,7 @@ program
         ]) 
         .then(answers => {
             //用户选择后回调
-          console.log(symbols.success,chalk.green('开始创建..........,请稍候'));
+          // console.log(symbols.success,chalk.green('开始创建..........,请稍候'));
           const spinner = ora('正在下载模板...');
           spinner.start();
           const type = getType(answers)
@@ -71,7 +71,7 @@ program
                     }
                     count++;
                     if (count+1 == files.length) { //排除index.js文件
-                      console.log(symbols.success, chalk.green('模版创建成功'));
+                      // console.log(symbols.success, chalk.green('模版创建成功'));
                     }
                   }
                 );
