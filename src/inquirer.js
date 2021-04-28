@@ -1,9 +1,10 @@
 // https://blog.csdn.net/qq_26733915/article/details/80461257  学习地址
+// https://www.npmjs.com/package/inquirer/v/5.0.1#documentation 官方地址
 /*
  * @Author: xiaoping.xu
  * @Date: 2021-04-28 15:42:22
  * @LastEditors: xiaoping.xu
- * @LastEditTime: 2021-04-28 15:58:47
+ * @LastEditTime: 2021-04-28 16:00:27
  * @Desc: 
  */
 const inquirer = require('inquirer')

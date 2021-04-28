@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babellog": "babel src/logSymbols.js --out-file src/log.js"
   },
   "repository": {
     "type": "git",
@@ -22,9 +23,15 @@
     "handlebars": "^4.7.7",
     "inquirer": "^8.0.0",
     "log-symbols": "^5.0.0",
-    "ora": "^5.4.0"
+    "ora": "^5.4.0",
+    "rimraf": "^3.0.2"
   },
   "bin": {
     "temp": "index.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.16",
+    "@babel/core": "^7.13.16",
+    "@babel/preset-env": "^7.13.15"
   }
 }

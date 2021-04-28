@@ -1,13 +1,8 @@
 {
     "presets": [
-      "react",
-      "stage-0"
+      "@babel/preset-env"
     ],
     "plugins": [
-        ["import",{
-            "libraryName": "antd",
-            "libraryDirectory": "es",
-            "style": "css"
-        }]
+        
     ]
 }
