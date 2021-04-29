@@ -40,12 +40,13 @@ program
           const spinner = ora('正在下载模板...');
           spinner.start();
           const type = getType(answers)
-          download(`github:NewPrototype/template/#${type}`, name, err => {
+          download(`github:xuxiaoping2016/package/#${type}`, name, err => {
             if (err) {
               spinner.fail();
             } else {
               spinner.succeed();
               var files = fs.readdirSync(name);
+              // console.log('name',name, files)
               for(let i=0;i<files.length;i++){ //修改文件内容
                 let fileName=`${name}/${files[i]}`;
                 if(fs.existsSync(`${name}/${files[i]}`)){
@@ -87,16 +88,16 @@ program
 program.parse(process.argv);
 
 const getType = (type) => {
-  let str = 'master';
+  let str = 'feature/20210428_devCli_temp';
   switch (type.type) {
     case "react-component------ES6组件":
-      str = "component"
+      str = "feature/20210428_devCli_temp_es6"
       break;
       case "react-function------函数组件":
-      str = "master"
+      str = "feature/20210428_devCli_temp"
       break;
       case "react-redux------ES6组件":
-      str = "redux"
+      str = "feature/20210428_devCli_temp_redux"
       break;
     default:
       break;
