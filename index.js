@@ -20,7 +20,7 @@ const templates = {
       "ts-vue是一个中后台前端解决方案，它基于 vue, typescript 和 element-ui实现。",
   },
   "umi-hooks": {
-    url: "https://github.com/easy-wheel/Umi-hooks",
+    url: "https://github.com/xuxiaoping2016/reactfm.git",
     downloadUrl: "https://github.com:easy-wheel/Umi-hooks#master",
     description:
       "Umi-Hooks是一个中后台前端解决方案，它基于 umi, react, typescript 和 ant-design实现。",
@@ -29,11 +29,13 @@ const templates = {
  
 program
   .version(packageData.version)
-  .option("-i, --init", "初始化项目")
-  .option("-V, --version", "查看版本号信息")
-  .option("-l, --list", "查看可用模版列表");
+  .option('-i, --init', '初始化项目')
+    .option('-V,--version','查看版本号信息')
+    .option('-l, --list','查看可用模版列表')
 program.parse(process.argv);
-if (program.opts() && program.opts().init) {
+const options = program.opts()
+console.log(options)
+if (options && options.init) {
   // 初始化项目
   inquirer
     .prompt([
@@ -60,12 +62,14 @@ if (program.opts() && program.opts().init) {
       },
     ])
     .then((answers) => {
+        console.log('answer',answers)
       // 把采集到的用户输入的数据解析替换到 package.json 文件中
       console.log("选择", answers.template.split(" ")[0]);
       let url = templates[answers.template.split(" ")[0]].downloadUrl;
       initTemplateDefault(answers, url);
     });
 }
+
 if (program.opts() && program.opts().list) {
   // 查看可用模版列表
   for (let key in templates) {
